@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\HocTap\\LearnCShap\\MVC\\MVC.csproj": {}
+    "D:\\HocTap\\LearnCShap\\MVC\\MVC.csproj": {}
   },
   "projects": {
-    "d:\\HocTap\\LearnCShap\\MVC\\MVC.csproj": {
+    "D:\\HocTap\\LearnCShap\\MVC\\MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\HocTap\\LearnCShap\\MVC\\MVC.csproj",
+        "projectUniqueName": "D:\\HocTap\\LearnCShap\\MVC\\MVC.csproj",
         "projectName": "MVC",
-        "projectPath": "d:\\HocTap\\LearnCShap\\MVC\\MVC.csproj",
+        "projectPath": "D:\\HocTap\\LearnCShap\\MVC\\MVC.csproj",
         "packagesPath": "C:\\Users\\GiangNV14\\.nuget\\packages\\",
-        "outputPath": "d:\\HocTap\\LearnCShap\\MVC\\obj\\",
+        "outputPath": "D:\\HocTap\\LearnCShap\\MVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\GiangNV14\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
