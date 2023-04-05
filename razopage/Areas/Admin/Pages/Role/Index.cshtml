@@ -1,0 +1,43 @@
+﻿@page "/admin/role"
+@model App.Admin.Role.IndexModel
+@{
+    ViewData["Title"] = "Danh sách các role";
+
+}
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+<h1>@ViewData["Title"]</h1>
+<p>
+    <a class="btn btn-primary" asp-page="./Create"><i class="fa fa-plus" aria-hidden="true"> Thêm role</i></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Role ID</th>
+            <th>Tên</th>
+            <th>Tác vụ</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model.Roles) 
+        {
+        <tr>
+            <td>@role.Id</td>
+            <td>@role.Name</td>
+            <td>
+                <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-roleid="@role.Id"><i class="fa fa-edit"></i></a>
+                <a name="rolename"  class="btn btn-success btn-sm" 
+                        asp-route-roleid ="@role.Id"
+                        asp-area="Admin"
+                        asp-page="/RoleClaims/Index">Claims</a>
+
+                 <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-roleid="@role.Id"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

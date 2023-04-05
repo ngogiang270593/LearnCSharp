@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Claim cho:" + Model.Role.Name;
+}
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+<h1>Role: @Model.Role.Name</h1>
+
+<p><a class="btn btn-primary" asp-page="./Create" asp-route-roleid="@Model.Role.Id"><i class="fa fa-plus" aria-hidden="true"> Thêm Claim</i></a></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Claims[0].ClaimType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Claims[0].ClaimValue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Claims) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaimType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClaimValue)
+            </td>
+            <td>
+                  <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-roleid="@Model.Role.Id" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
+                  <a class="btn btn-danger btn-sm" asp-page="./Delete"asp-route-roleid="@Model.Role.Id" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<a asp-area="Admin" asp-page="/Role/Index">Danh sách ROLES</a>

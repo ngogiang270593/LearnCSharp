@@ -1,0 +1,32 @@
+﻿@page "/admin/role-user"
+@model App.Admin.Role.UserModel
+@{
+    ViewData["Title"] = "DANH SÁCH NGƯỜI DÙNG";
+}
+<h4>@ViewData["Title"]</h4>
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+<table class="table table-striped">
+    <tr>
+        <th>UserName</th>
+        <th>Roles</th>
+        <th>Chức năng</th>
+    </tr>
+    @foreach (var user in @Model.users)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>@user.Listroles</td>
+            <td>
+                <form method="POST" class="d-inline">
+                <button name="Input.ID" value="@user.Id" class="btn btn-primary btn-sm" 
+                        asp-page="./AddUserRole">Cập nhật Role</button>
+                </form>
+            </td>
+        </tr>
+        
+    }
+</table>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,18 @@
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Authorization
+@using Identity.Models
+@inject SignInManager<AppUser> SignInManager
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService authorizationService
+@if (SignInManager.IsSignedIn(User) && (await authorizationService.AuthorizeAsync(User, "AdminDropdown")).Succeeded)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Manager
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" asp-page="/Role/Index" asp-area="Admin">Quản lý role</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" asp-page="/Role/User" asp-area="Admin">Gán role cho User</a></li>
+        </ul>
+    </li>
+}
